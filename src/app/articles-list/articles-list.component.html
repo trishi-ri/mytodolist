@@ -1,0 +1,8 @@
+<div class="ui grid posts items">
+  <app-article
+    *ngFor="let NextArticle of sortedArticles(articlesList)"
+    [article]="NextArticle"
+    (click)="clicked(NextArticle)"
+    [class.selected]="isSelected(NextArticle)">
+  </app-article>
+</div>

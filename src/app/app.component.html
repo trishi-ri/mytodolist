@@ -1,0 +1,20 @@
+<form class="ui large form segment">
+  <div class="field">
+    <label for="title">Title:</label>
+    <input id="title" #newtitile>
+  </div>
+  <div class="field">
+    <label for="link">Link:</label>
+    <input id="link" #newlink>
+  </div>
+
+  <button (click)="addArticle(newtitile, newlink)"
+          class="ui positive right floated button">
+    Submit link
+  </button>
+</form>
+
+<app-articles-list
+  [articlesList]="articles"
+  (onArticleSelected)="articleWasSelected($event)">
+</app-articles-list>
