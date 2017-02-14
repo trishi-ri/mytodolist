@@ -5,8 +5,8 @@ import {Article} from "../article/article.model";
   selector: 'app-articles-list',
   inputs: ['articlesList'],
   outputs: ['onArticleSelected'],
-  templateUrl: './articles-list.component.html',
-  styleUrls: ['./articles-list.component.css']
+  templateUrl: 'articles-list.component.html',
+  styleUrls: ['articles-list.component.css']
 })
 export class ArticlesListComponent implements OnInit {
   articles: Article[];

@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ArticleComponent } from './article/article.component';
-import { ArticlesListComponent } from './articles-list/articles-list.component';
+import { ArticleComponent } from './components/article/article.component';
+import { ArticlesListComponent } from './components/articles-list/articles-list.component';
 
 @NgModule({
   declarations: [

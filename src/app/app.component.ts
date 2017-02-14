@@ -1,5 +1,5 @@
-import {Component, EventEmitter} from '@angular/core';
-import {Article} from "./article/article.model";
+import {Component} from '@angular/core';
+import {Article} from "./components/article/article.model";
 
 @Component({
   selector: 'app-root',
