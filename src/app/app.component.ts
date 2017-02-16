@@ -27,14 +27,6 @@ export class AppComponent {
     return false;
   }
 
-  // articleWasDeleted(article: Article): void{
-  //   const index: number = this.articles.indexOf(article);
-  //   if (index != -1) {
-  //     this.articles.slice(index, 1);
-  //     console.log('Article was deleted: ', article);
-  //   }
-  // }
-
   articleWasSelected(article: Article): void{
     console.log('Article clicked: ', article);
   }

@@ -1,15 +1,15 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import {Article} from "../article/article.model";
 
 @Component({
   selector: 'app-articles-list',
-  inputs: ['articlesList'],
-  outputs: ['onArticleSelected'],
   templateUrl: 'articles-list.component.html',
   styleUrls: ['articles-list.component.css']
 })
 export class ArticlesListComponent implements OnInit {
+  @Input()
   articles: Article[];
+  @Output()
   onArticleSelected: EventEmitter<Article>;
   private currentArticle: Article;
 
@@ -24,6 +24,14 @@ export class ArticlesListComponent implements OnInit {
   clicked(article: Article): void{
     this.currentArticle = article;
     this.onArticleSelected.emit(article);
+  }
+
+  deleteArticle(article: Article) {
+      let index: number = this.articles.indexOf(article);
+      if (index != -1) {
+        this.articles.splice(index, 1);
+        console.log('Article was deleted: ', article);
+      }
   }
 
   isSelected(article: Article) :boolean{
