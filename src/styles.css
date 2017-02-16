@@ -49,6 +49,7 @@ ul.ui.list li:before {
 .voters {
   clear: both;
   width: 100%;
+  color: #4183C4;
 }
 
 .ui.items>.item {
