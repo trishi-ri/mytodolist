@@ -1,20 +1,29 @@
-<form class="ui large form segment">
-  <div class="field">
+<div class="row">
+  <div class="col-sm-3 col-md-2 sidebar"></div>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+    <h1 class="page-header">Dashboard</h1>
+
     <label for="title">Title:</label>
-    <input id="title" #newtitile>
-  </div>
-  <div class="field">
+    <div class="input-group">
+      <input type="text" class="form-control" id="title" #newTitle>
+    </div>
+
     <label for="link">Link:</label>
-    <input id="link" #newlink>
+    <div class="input-group">
+      <input type="text" class="form-control" id="link" #newLink>
+    </div>
+
+    <button type="button"
+            class="btn btn-default"
+            (click)="addArticle(newTitle, newLink)">
+      Submit link
+    </button>
+
+    <app-articles-list
+        [articles]="articles"
+        (onArticleSelected)="articleWasSelected($event)">
+    </app-articles-list>
+
   </div>
-
-  <button (click)="addArticle(newtitile, newlink)"
-          class="ui positive right floated button">
-    Submit link
-  </button>
-</form>
-
-<app-articles-list
-  [articles]="articles"
-  (onArticleSelected)="articleWasSelected($event)">
-</app-articles-list>
+</div>
