@@ -1,9 +1,12 @@
-<div class="ui grid posts items">
-  <app-article
-    *ngFor="let NextArticle of sortedArticles(articles)"
-    [article]="NextArticle"
-    (click)="clicked(NextArticle)"
-    (onDelete)="deleteArticle($event)"
-    [class.selected]="isSelected(NextArticle)">
-  </app-article>
+<h2 class="sub-header">Articles list</h2>
+
+<!--<div class="ui grid posts items">-->
+<div class="list-group">
+    <app-article
+      *ngFor="let NextArticle of sortedArticles(articles)"
+      [article]="NextArticle"
+      (click)="clicked(NextArticle)"
+      (onDelete)="deleteArticle($event)"
+      [class.selected]="isSelected(NextArticle)">
+    </app-article>
 </div>

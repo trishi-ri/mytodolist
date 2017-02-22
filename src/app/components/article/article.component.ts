@@ -5,7 +5,7 @@ import {Article} from './article.model';
   selector: 'app-article',
   templateUrl: 'article.component.html',
   styleUrls: ['article.component.css'],
-  host: {'class': 'item row'}
+  host: {'class': 'list-group-item'}
 })
 export class ArticleComponent implements OnInit {
   @Output()
