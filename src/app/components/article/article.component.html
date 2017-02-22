@@ -1,72 +1,30 @@
-<!--<div class="four wide column center aligned votes">
-  <div class="ui statistic">
-    <div class="value">
-      {{article.votes}}
-    </div>
-    <div class="label">
-      Points
-    </div>
-  </div>
-</div>
-<div class="twelve wide column">
-  <a class="ui large header" href="{{article.link}}">
-    {{article.title}}
-  </a>
-  <div class="meta">({{article.domain()}})</div>
-  <ul class="ui big horizontal list voters">
-    <li class="item">
-      <a href (click)="voteUp()">
-        <i class="arrow up icon"></i>
-        up
-      </a>
-    </li>
-    <li class="item">
-      <a href (click)="voteDown()">
-        <i class="arrow down icon"></i>
-        down
-      </a>
-    </li>
-    <li class="item">
-      <div (click)="deleteArticle($event)">
-        <i class="trash icon "></i>
-        delete
-      </div>
-    </li>
-  </ul>
-</div>-->
-
-<span class="label label-default">
-  #{{article.id}}
-</span>
-<span class="badge">
-  {{article.votes}}
-</span>
-
 <h4 class="list-group-item-heading">
   {{article.title}}
 </h4>
-<p class="list-group-item-text">
-  {{article.link}}
-</p>
-<p>({{article.domain()}})</p>
+<div class="additional-group">
+  <p class="list-group-item-text">
+    {{article.link}}
+  </p>
+  <p>({{article.domain()}})</p>
 
-<div class="btn-group" role="group" aria-label="...">
-    <button type="button"
-            class="btn btn-default"
-            (click)="voteUp()">
-      <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-      Up
-    </button>
-    <button type="button"
-            class="btn btn-default"
-            (click)="voteDown()">
-      <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-      Down
-    </button>
-    <button type="button"
-            class="btn btn-default"
-            (click)="deleteArticle($event)">
-      <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-      Delete
-    </button>
+  <div class="btn-group" role="group" aria-label="...">
+      <button type="button"
+              class="btn btn-default"
+              (click)="voteUp()">
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+        Up
+      </button>
+      <button type="button"
+              class="btn btn-default"
+              (click)="voteDown()">
+        <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+        Down
+      </button>
+      <button type="button"
+              class="btn btn-default"
+              (click)="deleteArticle($event)">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        Delete
+      </button>
+  </div>
 </div>
