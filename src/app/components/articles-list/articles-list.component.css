@@ -1,0 +1,23 @@
+.list-group-item{
+  margin: 10px 0;
+  border-radius: 4px;
+}
+.list-group-item.selected{
+  border-color: red;
+}
+.list-group-item:hover{
+  background-color: #f5f5f5;
+}
+.list-group{
+  background-color: gray;
+  padding: 5px;
+  margin-bottom: 0;
+}
+.divider{
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  top: 0;
+  border-left: 2px solid #e5e5e5;
+  margin-left: 25px;
+}
