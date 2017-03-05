@@ -8,7 +8,8 @@
          class="form-control"
          id="inputTitle"
          placeholder="Title"
-         [formControl]="myForm.controls['title']"
+         [formControl]="myForm.get('title')"
+         [(ngModel)]="title"
          name="title">
 
   <label for="inputLink" class="sr-only">Link</label>
@@ -25,18 +26,27 @@
     Submit
   </button>
 
-  <div *ngIf="!link.valid"
-       class="alert alert-warning">
-    Link is invalid
-  </div>
-  <div *ngIf="link.hasError('required')"
-       class="alert alert-warning">
-    Link is required
-  </div>
+  <div class="list-group validator-messages">
+    <div *ngIf="title"
+         class="list-group-item list-group-item-info">
+      The article name is: "{{title}}"
+    </div>
+    <div *ngIf="!link.valid"
+         class="list-group-item list-group-item-warning">
+      Link is invalid
+    </div>
+    <div *ngIf="link.hasError('required')"
+         class="list-group-item list-group-item-warning">
+      Link is required
+    </div>
+    <div *ngIf="link.hasError('invalidLink')"
+         class="list-group-item list-group-item-warning">
+      Link must begin with <span>http</span>
+    </div>
 
-  <div *ngIf="!myForm.valid"
-       class="alert alert-warning">
-    Form is invalid
+    <div *ngIf="!myForm.valid"
+         class="list-group-item list-group-item-warning">
+      Form is invalid
+    </div>
   </div>
-
 </form>

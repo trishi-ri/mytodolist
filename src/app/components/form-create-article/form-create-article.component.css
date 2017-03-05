@@ -40,3 +40,7 @@
 form{
   margin: 5px;
 }
+
+.list-group.validator-messages{
+  margin: 5px;
+}
