@@ -1,0 +1,52 @@
+<form [formGroup]="myForm"
+  (ngSubmit)="onSubmit(myForm.value)">
+
+  <h3 class="ui header">new article</h3>
+
+  <label for="inputTitle" class="sr-only">Title</label>
+  <input type="text"
+         class="form-control"
+         id="inputTitle"
+         placeholder="Title"
+         [formControl]="myForm.get('title')"
+         [(ngModel)]="title"
+         name="title">
+
+  <label for="inputLink" class="sr-only">Link</label>
+  <input type="text"
+         class="form-control"
+         id="inputLink"
+         placeholder="Link"
+         [formControl]="myForm.controls['link']"
+         name="link">
+
+  <button type="submit"
+          id="submitButton"
+          class="btn btn-default btn-block">
+    Submit
+  </button>
+
+  <div class="list-group validator-messages">
+    <div *ngIf="title"
+         class="list-group-item list-group-item-info">
+      The article name is: "{{title}}"
+    </div>
+    <div *ngIf="!link.valid"
+         class="list-group-item list-group-item-warning">
+      Link is invalid
+    </div>
+    <div *ngIf="link.hasError('required')"
+         class="list-group-item list-group-item-warning">
+      Link is required
+    </div>
+    <div *ngIf="link.hasError('invalidLink')"
+         class="list-group-item list-group-item-warning">
+      Link must begin with <span>http</span>
+    </div>
+
+    <div *ngIf="!myForm.valid"
+         class="list-group-item list-group-item-warning">
+      Form is invalid
+    </div>
+  </div>
+</form>
