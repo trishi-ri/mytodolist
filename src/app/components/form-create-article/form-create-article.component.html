@@ -1,0 +1,42 @@
+<form [formGroup]="myForm"
+  (ngSubmit)="onSubmit(myForm.value)">
+
+  <h3 class="ui header">new article</h3>
+
+  <label for="inputTitle" class="sr-only">Title</label>
+  <input type="text"
+         class="form-control"
+         id="inputTitle"
+         placeholder="Title"
+         [formControl]="myForm.controls['title']"
+         name="title">
+
+  <label for="inputLink" class="sr-only">Link</label>
+  <input type="text"
+         class="form-control"
+         id="inputLink"
+         placeholder="Link"
+         [formControl]="myForm.controls['link']"
+         name="link">
+
+  <button type="submit"
+          id="submitButton"
+          class="btn btn-default btn-block">
+    Submit
+  </button>
+
+  <div *ngIf="!link.valid"
+       class="alert alert-warning">
+    Link is invalid
+  </div>
+  <div *ngIf="link.hasError('required')"
+       class="alert alert-warning">
+    Link is required
+  </div>
+
+  <div *ngIf="!myForm.valid"
+       class="alert alert-warning">
+    Form is invalid
+  </div>
+
+</form>
