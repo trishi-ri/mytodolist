@@ -5,6 +5,7 @@
       [article]="NextArticle"
       (click)="clicked(NextArticle)"
       (onDelete)="deleteArticle($event)"
-      [class.selected]="isSelected(NextArticle)">
+      [class.selected]="isSelected(NextArticle)"
+      [selected]="isSelected(NextArticle)">
     </app-article>
 </div>

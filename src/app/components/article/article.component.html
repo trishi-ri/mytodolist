@@ -7,7 +7,7 @@
 <h4 class="list-group-item-heading">
   {{article.title}}
 </h4>
-<div class="additional-group">
+<div [class.displayed]="selected" class="additional-group">
   <p class="list-group-item-text">
     {{article.link}}
   </p>

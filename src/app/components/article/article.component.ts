@@ -12,6 +12,8 @@ export class ArticleComponent implements OnInit {
   onDelete: EventEmitter<Article> = new EventEmitter<Article>();
   @Input()
   article: Article;
+  @Input()
+  selected: boolean;
 
   voteUp(): boolean {
     this.article.voteUp();

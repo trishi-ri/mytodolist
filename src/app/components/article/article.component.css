@@ -1,0 +1,7 @@
+.additional-group{
+  display: none;
+}
+
+.additional-group.displayed{
+  display: block;
+}
