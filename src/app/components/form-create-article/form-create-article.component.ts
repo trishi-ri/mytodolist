@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, AbstractControl, FormControl} from "@angular/forms";
 
 @Component({
@@ -7,6 +7,8 @@ import {FormBuilder, FormGroup, Validators, AbstractControl, FormControl} from "
   styleUrls: ['form-create-article.component.css']
 })
 export class FormCreateArticleComponent{
+  @Output()
+  onArticleValid: EventEmitter<{[key: string]:string}>;
 
   myForm: FormGroup;
   title: string;
@@ -31,10 +33,13 @@ export class FormCreateArticleComponent{
         console.log('form changed to: ', form);
       }
     );
+
+    this.onArticleValid = new EventEmitter();
   }
 
   onSubmit(value: string): void {
     console.log('you submitted value: ', value);
+    this.onArticleValid.emit({'title':this.title, 'link':this.link.value});
   }
 
 }

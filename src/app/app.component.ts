@@ -18,12 +18,10 @@ export class AppComponent {
     ];
   }
 
-  addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
+  addArticle(newArticle: {[key:string]:string}): boolean {
     const newIndex: number = this.articles.length;
-    console.log(`Adding article #${newIndex} title: ${title.value} and link: ${link.value}`);
-    this.articles.push(new Article(newIndex, title.value, link.value));
-    title.value = '';
-    link.value = '';
+    console.log(`Adding article #${newIndex} title: ${newArticle['title']} and link: ${newArticle['link']}`);
+    this.articles.push(new Article(newIndex, newArticle['title'], newArticle['link']));
     return false;
   }
 

@@ -22,30 +22,39 @@
 
   <button type="submit"
           id="submitButton"
-          class="btn btn-default btn-block">
+          class="btn btn-default btn-block"
+          [disabled]="!myForm.valid">
     Submit
   </button>
 
   <div class="list-group validator-messages">
+    <div *ngIf="myForm.get('title').hasError('required')"
+         class="list-group-item list-group-item-warning">
+      Title is required
+    </div>
     <div *ngIf="title"
          class="list-group-item list-group-item-info">
       The article name is: "{{title}}"
-    </div>
-    <div *ngIf="!link.valid"
-         class="list-group-item list-group-item-warning">
-      Link is invalid
     </div>
     <div *ngIf="link.hasError('required')"
          class="list-group-item list-group-item-warning">
       Link is required
     </div>
+    <div *ngIf="link.value"
+         class="list-group-item list-group-item-info">
+      The article link is: "{{link.value}}"
+    </div>
     <div *ngIf="link.hasError('invalidLink')"
          class="list-group-item list-group-item-warning">
       Link must begin with <span>http</span>
     </div>
+    <div *ngIf="!link.valid"
+         class="list-group-item list-group-item-danger">
+      Link is invalid
+    </div>
 
     <div *ngIf="!myForm.valid"
-         class="list-group-item list-group-item-warning">
+         class="list-group-item list-group-item-danger">
       Form is invalid
     </div>
   </div>
