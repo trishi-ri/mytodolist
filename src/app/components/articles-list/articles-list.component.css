@@ -3,7 +3,8 @@
   border-radius: 4px;
 }
 .list-group-item.selected{
-  border-color: red;
+  border-color: black;
+  border-width: 2px;
 }
 .list-group-item:hover{
   background-color: #f5f5f5;
