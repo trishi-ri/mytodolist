@@ -1,0 +1,6 @@
+app-articles-list {
+  display: block;
+  position: relative;
+  margin: 5px;
+  border: solid 1px black;
+}
