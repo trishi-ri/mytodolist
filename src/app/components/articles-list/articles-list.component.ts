@@ -17,25 +17,25 @@ export class ArticlesListComponent implements OnInit {
     this.onArticleSelected = new EventEmitter();
   }
 
-  sortedArticles(currentArticles: Article[]) : Article[] {
+  sortedArticles(currentArticles: Article[]): Article[] {
     return currentArticles.sort((a: Article, b: Article) => b.votes - a.votes);
   }
 
-  clicked(article: Article): void{
+  clicked(article: Article): void {
     this.currentArticle = article;
     this.onArticleSelected.emit(article);
   }
 
   deleteArticle(article: Article) {
-      let index: number = this.articles.indexOf(article);
-      if (index != -1) {
-        this.articles.splice(index, 1);
-        console.log('Article was deleted: ', article);
-      }
+    let index: number = this.articles.indexOf(article);
+    if (index != -1) {
+      this.articles.splice(index, 1);
+      console.log('Article was deleted: ', article);
+    }
   }
 
-  isSelected(article: Article) :boolean{
-    if (!article || !this.currentArticle){
+  isSelected(article: Article): boolean {
+    if (!article || !this.currentArticle) {
       return false;
     }
     return article.id === this.currentArticle.id;

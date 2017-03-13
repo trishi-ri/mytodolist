@@ -1,7 +1,7 @@
-.additional-group{
+.additional-group {
   display: none;
 }
 
-.additional-group.displayed{
+.additional-group.displayed {
   display: block;
 }

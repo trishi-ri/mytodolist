@@ -1,20 +1,24 @@
-.list-group-item{
+.list-group-item {
   margin: 10px 0;
   border-radius: 4px;
 }
-.list-group-item.selected{
+
+.list-group-item.selected {
   border-color: black;
   border-width: 2px;
 }
-.list-group-item:hover{
+
+.list-group-item:hover {
   background-color: #f5f5f5;
 }
-.list-group{
+
+.list-group {
   background-color: gray;
   padding: 5px;
   margin-bottom: 0;
 }
-.divider{
+
+.divider {
   position: absolute;
   width: 5px;
   height: 100%;

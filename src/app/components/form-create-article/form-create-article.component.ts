@@ -6,9 +6,9 @@ import {FormBuilder, FormGroup, Validators, AbstractControl, FormControl} from "
   templateUrl: 'form-create-article.component.html',
   styleUrls: ['form-create-article.component.css']
 })
-export class FormCreateArticleComponent{
+export class FormCreateArticleComponent {
   @Output()
-  onArticleValid: EventEmitter<{[key: string]:string}>;
+  onArticleValid: EventEmitter<{[key: string]: string}>;
 
   myForm: FormGroup;
   title: string;
@@ -39,13 +39,13 @@ export class FormCreateArticleComponent{
 
   onSubmit(value: string): void {
     console.log('you submitted value: ', value);
-    this.onArticleValid.emit({'title':this.title, 'link':this.link.value});
+    this.onArticleValid.emit({'title': this.title, 'link': this.link.value});
   }
 
 }
 
-function linkValidator(control: FormControl): { [s: string]: boolean} {
-  if (!control.value.match(/^http/)){
+function linkValidator(control: FormControl): {[s: string]: boolean} {
+  if (!control.value.match(/^http/)) {
     return {invalidLink: true};
   }
 }

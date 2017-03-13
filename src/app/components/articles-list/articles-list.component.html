@@ -1,11 +1,11 @@
 <div class="list-group">
   <div class="divider"></div>
   <app-article
-      *ngFor="let NextArticle of sortedArticles(articles)"
-      [article]="NextArticle"
-      (click)="clicked(NextArticle)"
-      (onDelete)="deleteArticle($event)"
-      [class.selected]="isSelected(NextArticle)"
-      [selected]="isSelected(NextArticle)">
-    </app-article>
+    *ngFor="let NextArticle of sortedArticles(articles)"
+    [article]="NextArticle"
+    (click)="clicked(NextArticle)"
+    (onDelete)="deleteArticle($event)"
+    [class.selected]="isSelected(NextArticle)"
+    [selected]="isSelected(NextArticle)">
+  </app-article>
 </div>

@@ -9,7 +9,7 @@ import {Article} from "./components/article/article.model";
 export class AppComponent {
   articles: Article[];
 
-  constructor(){
+  constructor() {
     this.articles = [
       new Article(0, 'start page', 'https://trishi-ri.github.io', 0),
       new Article(1, 'test Tib', 'https://trishi-ri.github.io/testtib/', 1),
@@ -18,14 +18,14 @@ export class AppComponent {
     ];
   }
 
-  addArticle(newArticle: {[key:string]:string}): boolean {
+  addArticle(newArticle: {[key: string]: string}): boolean {
     const newIndex: number = this.articles.length;
     console.log(`Adding article #${newIndex} title: ${newArticle['title']} and link: ${newArticle['link']}`);
     this.articles.push(new Article(newIndex, newArticle['title'], newArticle['link']));
     return false;
   }
 
-  articleWasSelected(article: Article): void{
+  articleWasSelected(article: Article): void {
     console.log('Article clicked: ', article);
   }
 
