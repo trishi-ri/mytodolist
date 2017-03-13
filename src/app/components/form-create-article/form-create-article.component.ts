@@ -4,7 +4,8 @@ import {FormBuilder, FormGroup, Validators, AbstractControl, FormControl} from "
 @Component({
   selector: 'form-create-article',
   templateUrl: 'form-create-article.component.html',
-  styleUrls: ['form-create-article.component.css']
+  styleUrls: ['form-create-article.component.css'],
+  host: {'class': 'block-of-information'}
 })
 export class FormCreateArticleComponent {
   @Output()

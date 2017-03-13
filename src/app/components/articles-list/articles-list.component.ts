@@ -4,7 +4,8 @@ import {Article} from "../article/article.model";
 @Component({
   selector: 'app-articles-list',
   templateUrl: 'articles-list.component.html',
-  styleUrls: ['articles-list.component.css']
+  styleUrls: ['articles-list.component.css'],
+  host: {'class': 'block-of-information'}
 })
 export class ArticlesListComponent implements OnInit {
   @Input()
