@@ -3,31 +3,58 @@
 
   <h3 class="ui header">new article</h3>
 
-  <label for="inputTitle" class="sr-only">Title</label>
-  <input type="text"
-         class="form-control"
-         id="inputTitle"
-         placeholder="Title"
-         [formControl]="myForm.get('title')"
-         [(ngModel)]="title"
-         name="title">
+  <div class="inputField"
+       [class.alert-danger]="!myForm.get('title').valid && (myForm.get('title').touched || wasTryingToSend)"
+       [class.alert-success]="myForm.get('title').valid && (myForm.get('title').touched || wasTryingToSend)">
+    <label for="inputTitle" class="sr-only">Title</label>
+    <input type="text"
+           class="form-control"
+           id="inputTitle"
+           placeholder="Title"
+           [formControl]="myForm.get('title')"
+           [(ngModel)]="title"
+           name="title">
+    <div *ngIf="myForm.get('title').hasError('required') && (myForm.get('title').touched || wasTryingToSend)">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      Title is required
+    </div>
+    <div *ngIf="myForm.get('title').valid && (myForm.get('title').touched || wasTryingToSend)">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      Title is ok
+    </div>
+  </div>
 
-  <label for="inputLink" class="sr-only">Link</label>
-  <input type="text"
-         class="form-control"
-         id="inputLink"
-         placeholder="Link"
-         [formControl]="myForm.controls['link']"
-         name="link">
+  <div class="inputField"
+       [class.alert-danger]="!link.valid && (link.touched || wasTryingToSend)"
+       [class.alert-success]="link.valid && (link.touched || wasTryingToSend)">
+    <label for="inputLink" class="sr-only">Link</label>
+    <input type="text"
+           class="form-control"
+           id="inputLink"
+           placeholder="Link"
+           [formControl]="myForm.controls['link']"
+           name="link">
+    <div *ngIf="link.hasError('required') && (link.touched || wasTryingToSend)">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      Link is required
+    </div>
+    <div *ngIf="link.hasError('invalidLink') && (link.dirty || wasTryingToSend)">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      Link must begin with 'http'
+    </div>
+    <div *ngIf="link.valid && (link.touched || wasTryingToSend)">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      Link is ok
+    </div>
+  </div>
 
   <button type="submit"
           id="submitButton"
-          class="btn btn-default btn-block"
-          [disabled]="!myForm.valid">
+          class="btn btn-default btn-block">
     Submit
   </button>
 
-  <div class="list-group validator-messages">
+  <!--<div class="list-group validator-messages">
     <div *ngIf="myForm.get('title').hasError('required')"
          class="list-group-item list-group-item-warning">
       Title is required
@@ -57,5 +84,5 @@
          class="list-group-item list-group-item-danger">
       Form is invalid
     </div>
-  </div>
+  </div>-->
 </form>

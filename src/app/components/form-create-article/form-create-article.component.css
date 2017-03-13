@@ -11,16 +11,9 @@
   border: 0;
 }
 
-#inputTitle {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
+.inputField {
+  margin: 5px;
 
-#inputLink {
-  margin-bottom: 5px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
 .form-control {
