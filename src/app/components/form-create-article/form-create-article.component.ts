@@ -48,12 +48,13 @@ export class FormCreateArticleComponent {
     }
     console.log('you submitted value: ', value);
     this.onArticleValid.emit({'title': this.title, 'link': this.link.value});
+    this.myForm.reset();
   }
 
 }
 
 function linkValidator(control: FormControl): {[s: string]: boolean} {
-  if (!control.value.match(/^http/)) {
+  if (control.value && !control.value.match(/^http/)) {
     return {invalidLink: true};
   }
 }
