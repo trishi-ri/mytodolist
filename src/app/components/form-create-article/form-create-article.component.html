@@ -3,14 +3,13 @@
 
   <h3 class="ui header">new article</h3>
 
-  <div class="inputField"
-       [class.alert-danger]="!myForm.get('title').valid && (myForm.get('title').touched || wasTryingToSend)"
-       [class.alert-success]="myForm.get('title').valid && (myForm.get('title').touched || wasTryingToSend)">
+  <div class="inputField">
     <label for="inputTitle" class="sr-only">Title</label>
     <input type="text"
            class="form-control"
            id="inputTitle"
            placeholder="Title"
+           required
            [formControl]="myForm.get('title')"
            [(ngModel)]="title"
            name="title">
@@ -24,14 +23,13 @@
     </div>
   </div>
 
-  <div class="inputField"
-       [class.alert-danger]="!link.valid && (link.touched || wasTryingToSend)"
-       [class.alert-success]="link.valid && (link.touched || wasTryingToSend)">
+  <div class="inputField">
     <label for="inputLink" class="sr-only">Link</label>
     <input type="text"
            class="form-control"
            id="inputLink"
            placeholder="Link"
+           required
            [formControl]="myForm.controls['link']"
            name="link">
     <div *ngIf="link.hasError('required') && (link.touched || wasTryingToSend)">
