@@ -13,11 +13,11 @@
            [formControl]="myForm.get('title')"
            [(ngModel)]="title"
            name="title">
-    <div *ngIf="myForm.get('title').hasError('required') && (myForm.get('title').touched || wasTryingToSend)">
+    <div *ngIf="myForm.get('title').hasError('required') && myForm.get('title').dirty">
       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
       Title is required
     </div>
-    <div *ngIf="myForm.get('title').valid && (myForm.get('title').touched || wasTryingToSend)">
+    <div *ngIf="myForm.get('title').valid && myForm.get('title').dirty">
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
       Title is ok
     </div>
@@ -32,15 +32,15 @@
            required
            [formControl]="myForm.controls['link']"
            name="link">
-    <div *ngIf="link.hasError('required') && (link.touched || wasTryingToSend)">
+    <div *ngIf="link.hasError('required') && link.dirty">
       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
       Link is required
     </div>
-    <div *ngIf="link.hasError('invalidLink') && (link.dirty || wasTryingToSend)">
+    <div *ngIf="link.hasError('invalidLink') && link.dirty">
       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
       Link must begin with 'http'
     </div>
-    <div *ngIf="link.valid && (link.touched || wasTryingToSend)">
+    <div *ngIf="link.valid && link.dirty">
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
       Link is ok
     </div>

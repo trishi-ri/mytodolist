@@ -14,7 +14,6 @@ export class FormCreateArticleComponent {
   myForm: FormGroup;
   title: string;
   link: AbstractControl;
-  wasTryingToSend: boolean;
 
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({
@@ -37,12 +36,9 @@ export class FormCreateArticleComponent {
     );
 
     this.onArticleValid = new EventEmitter();
-
-    // this.wasTryingToSend = false;
   }
 
   onSubmit(value: string): void {
-    this.wasTryingToSend = true;
     if (this.myForm.invalid) {
       return;
     }
