@@ -8,8 +8,10 @@
   {{article.title}}
 </h4>
 <div [class.displayed]="selected" class="additional-group">
-  <p class="list-group-item-text">
-    {{article.link}}
+  <p>
+    <a class="list-group-item-text" href="{{article.link}}">
+      {{article.link}}
+    </a>
   </p>
   <p>({{article.domain()}})</p>
 
