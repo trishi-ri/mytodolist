@@ -23,7 +23,12 @@ export class ArticlesListComponent implements OnInit {
   }
 
   clicked(article: Article): void {
-    this.currentArticle = article;
+    if (this.currentArticle == article) {
+      this.currentArticle = null
+    }
+    else {
+      this.currentArticle = article;
+    }
     this.onArticleSelected.emit(article);
   }
 

@@ -15,14 +15,14 @@ export class ArticleComponent implements OnInit {
   @Input()
   selected: boolean;
 
-  voteUp(): boolean {
+  voteUp(event) {
     this.article.voteUp();
-    return false;
+    event.stopPropagation();
   }
 
-  voteDown(): boolean {
+  voteDown(event) {
     this.article.voteDown();
-    return false;
+    event.stopPropagation();
   }
 
   deleteArticle(event) {
