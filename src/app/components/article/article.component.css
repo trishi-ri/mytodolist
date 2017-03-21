@@ -6,6 +6,11 @@
   display: block;
 }
 
+.list-group-item-heading {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
 #buttonDelete {
   float: right;
 }
