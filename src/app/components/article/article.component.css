@@ -5,3 +5,7 @@
 .additional-group.displayed {
   display: block;
 }
+
+#buttonDelete {
+  float: right;
+}
