@@ -7,13 +7,13 @@
 <span class="list-group-item-heading">
   {{article.title}}
 </span>
+<span>({{article.domain()}})</span>
 <div [class.displayed]="selected" class="additional-group">
   <p>
     <a class="list-group-item-text" href="{{article.link}}">
       {{article.link}}
     </a>
   </p>
-  <p>({{article.domain()}})</p>
 
   <div class="btn-group" role="group" aria-label="...">
     <button type="button"
