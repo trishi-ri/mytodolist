@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Article} from "./components/article/article.model";
+import {ArticlesList} from "./components/articles-list/articles-list.model";
 
 @Component({
   selector: 'app-root',
@@ -7,21 +8,19 @@ import {Article} from "./components/article/article.model";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  articles: Article[];
+  articles: ArticlesList;
 
   constructor() {
-    this.articles = [
-      new Article(0, 'start page', 'https://trishi-ri.github.io', 0),
-      new Article(1, 'test Tib', 'https://trishi-ri.github.io/testtib/', 1),
-      new Article(2, 'test Tib new', 'https://trishi-ri.github.io/testtib-new/', 4),
-      new Article(3, 'my todo-list', 'https://github.com/trishi-ri/MyToDoList', 8)
-    ];
+    this.articles = new ArticlesList;
+    this.articles.addArticles([
+      new Article('start page', 'https://trishi-ri.github.io'),
+      new Article('my todo-list', 'https://github.com/trishi-ri/MyToDoList')
+    ]);
   }
 
-  addArticle(newArticle: {[key: string]: string}): boolean {
-    const newIndex: number = this.articles.length;
-    console.log(`Adding article #${newIndex} title: ${newArticle['title']} and link: ${newArticle['link']}`);
-    this.articles.push(new Article(newIndex, newArticle['title'], newArticle['link']));
+  addArticle(newArticle: { [key: string]: string }): boolean {
+    console.log(`Adding article with title: ${newArticle['title']} and link: ${newArticle['link']}`);
+    this.articles.addArticle(new Article(newArticle['title'], newArticle['link']));
     return false;
   }
 

@@ -4,8 +4,8 @@ export class Article {
   link: string;
   votes: number;
 
-  constructor(id: number, title: string, link: string, votes?: number) {
-    this.id = id;
+  constructor(title: string, link: string, votes?: number, id?: number) {
+    this.id = id || 0;
     this.votes = votes || 0;
     this.title = title;
     this.link = link;

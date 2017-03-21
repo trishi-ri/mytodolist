@@ -1,5 +1,6 @@
 import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import {Article} from "../article/article.model";
+import {ArticlesList} from "./articles-list.model";
 
 @Component({
   selector: 'app-articles-list',
@@ -9,7 +10,7 @@ import {Article} from "../article/article.model";
 })
 export class ArticlesListComponent implements OnInit {
   @Input()
-  articles: Article[];
+  articles: ArticlesList;
   @Output()
   onArticleSelected: EventEmitter<Article>;
   private currentArticle: Article;
@@ -18,8 +19,8 @@ export class ArticlesListComponent implements OnInit {
     this.onArticleSelected = new EventEmitter();
   }
 
-  sortedArticles(currentArticles: Article[]): Article[] {
-    return currentArticles.sort((a: Article, b: Article) => b.votes - a.votes);
+  sortedArticles(): Article[] {
+    return this.articles.sortedArticles();
   }
 
   clicked(article: Article): void {
@@ -32,12 +33,16 @@ export class ArticlesListComponent implements OnInit {
     this.onArticleSelected.emit(article);
   }
 
+  addArticle(article: Article) {
+    this.articles.addArticle(article);
+  }
+
+  addArticles(arrayOfArticles: Article[]) {
+    this.articles.addArticles(arrayOfArticles);
+  }
+
   deleteArticle(article: Article) {
-    let index: number = this.articles.indexOf(article);
-    if (index != -1) {
-      this.articles.splice(index, 1);
-      console.log('Article was deleted: ', article);
-    }
+    this.articles.deleteArticle(article);
   }
 
   isSelected(article: Article): boolean {

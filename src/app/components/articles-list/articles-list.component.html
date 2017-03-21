@@ -1,7 +1,7 @@
 <div class="list-group">
   <div class="divider"></div>
   <app-article
-    *ngFor="let NextArticle of sortedArticles(articles)"
+    *ngFor="let NextArticle of articles.sortedArticles()"
     [article]="NextArticle"
     (click)="clicked(NextArticle)"
     (onDelete)="deleteArticle($event)"
