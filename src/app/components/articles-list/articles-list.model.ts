@@ -32,7 +32,7 @@ export class ArticlesList {
   }
 
   sortedArticles(): Article[] {
-    return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
+    return this.articles.sort((a: Article, b: Article) => (b.votes == a.votes ? a.id - b.id : b.votes - a.votes));
   }
 
   thisIdWas(id: number): boolean {
