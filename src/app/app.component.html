@@ -1,24 +1,42 @@
 <h1 class="page-header">Dashboard</h1>
 
 <div class="row">
-  <div class="col-sm-4 col-md-2 sidebar">
-    <form-create-article
-      (onArticleValid)="addArticle($event)">
-    </form-create-article>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#home" aria-controls="home" data-toggle="tab">Articles</a></li>
+    <li><a href="#httpRequests" aria-controls="httpRequests" data-toggle="tab">http requests</a></li>
+    <li><a href="#youtubeSearch" aria-controls="youtubeSearch" data-toggle="tab">youtube search</a></li>
+    <li><a href="#chat" aria-controls="chat" data-toggle="tab">chat</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="home">
+      <div class="col-sm-4 col-md-2 sidebar">
+        <form-create-article
+          (onArticleValid)="addArticle($event)">
+        </form-create-article>
+      </div>
+      <div class="col-sm-4 col-md-5 main">
+        <app-articles-list
+          [articles]="articles"
+          (onArticleSelected)="articleWasSelected($event)">
+        </app-articles-list>
+      </div>
+    </div>
+    <div class="tab-pane" id="httpRequests">
+      <div class="col-sm-4 col-md-5">
+        <app-simple-http></app-simple-http>
+      </div>
+      <div class="col-sm-4 col-md-5">
+        <app-http-requests></app-http-requests>
+      </div>
+    </div>
+    <div class="tab-pane" id="youtubeSearch">
+      <app-youtube-search></app-youtube-search>
+    </div>
+    <div class="tab-pane" id="chat">...</div>
   </div>
-  <div class="col-sm-4 col-md-5 main">
-    <app-articles-list
-      [articles]="articles"
-      (onArticleSelected)="articleWasSelected($event)">
-    </app-articles-list>
-  </div>
-  <div class="col-sm-4 col-md-5">
-    <app-simple-http></app-simple-http>
-    <app-http-requests></app-http-requests>
-  </div>
-</div>
-<div class="row">
-  <div>
-    <app-youtube-search></app-youtube-search>
-  </div>
+
 </div>
