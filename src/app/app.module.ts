@@ -12,8 +12,22 @@ import {SimpleHttpComponent} from './components/simple-http/simple-http.componen
 import {SearchBoxComponent} from './components/search-box/search-box.component';
 import {SearchResultComponent} from './components/search-result/search-result.component';
 import {YoutubeSearchComponent} from './components/youtube-search/youtube-search.component';
-import { HttpRequestsComponent } from './components/http-requests/http-requests.component';
+import {HttpRequestsComponent} from './components/http-requests/http-requests.component';
 import {YouTubeService, youTubeServiceInjectable} from './services/youtube/you-tube.service';
+import {CounterComponent} from './components/counter/counter.component';
+import {APP_STORE} from "./app-store";
+import {counterReducer} from "./reducers/CounterReducer";
+import {AppState} from "./interfaces/app-state";
+import {createStore, Store, StoreEnhancer} from "redux";
+
+let devTools: StoreEnhancer<AppState> =
+  window['devToolsExtension'] ?
+    window['devToolsExtension']() : f => f;
+
+let store: Store<AppState> = createStore<AppState>(
+  counterReducer,
+  devTools
+);
 
 @NgModule({
   declarations: [
@@ -25,7 +39,8 @@ import {YouTubeService, youTubeServiceInjectable} from './services/youtube/you-t
     SearchBoxComponent,
     SearchResultComponent,
     YoutubeSearchComponent,
-    HttpRequestsComponent
+    HttpRequestsComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +48,9 @@ import {YouTubeService, youTubeServiceInjectable} from './services/youtube/you-t
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [YouTubeService, youTubeServiceInjectable],
+  providers: [YouTubeService, youTubeServiceInjectable,
+    {provide: APP_STORE, useValue: store}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
