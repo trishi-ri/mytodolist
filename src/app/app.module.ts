@@ -24,10 +24,12 @@ let devTools: StoreEnhancer<AppState> =
   window['devToolsExtension'] ?
     window['devToolsExtension']() : f => f;
 
-let store: Store<AppState> = createStore<AppState>(
-  counterReducer,
-  devTools
-);
+export function store(): Store<AppState> {
+  return createStore<AppState>(
+    counterReducer,
+    devTools
+  );
+}
 
 @NgModule({
   declarations: [
@@ -49,8 +51,8 @@ let store: Store<AppState> = createStore<AppState>(
     HttpModule
   ],
   providers: [YouTubeService, youTubeServiceInjectable,
-    {provide: APP_STORE, useValue: store}
-    ],
+    {provide: APP_STORE, useFactory: store}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
