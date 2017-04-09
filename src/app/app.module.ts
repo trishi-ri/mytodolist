@@ -19,6 +19,7 @@ import {APP_STORE} from "./app-store";
 import {counterReducer} from "./reducers/CounterReducer";
 import {AppState} from "./interfaces/app-state";
 import {createStore, Store, StoreEnhancer} from "redux";
+import { ChatComponent } from './components/chat/chat.component';
 
 let devTools: StoreEnhancer<AppState> =
   window['devToolsExtension'] ?
@@ -42,7 +43,8 @@ export function store(): Store<AppState> {
     SearchResultComponent,
     YoutubeSearchComponent,
     HttpRequestsComponent,
-    CounterComponent
+    CounterComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
