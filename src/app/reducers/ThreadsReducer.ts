@@ -1,5 +1,6 @@
 import {Thread} from "../interfaces/thread";
 import {Action} from "redux";
+import {ThreadActions} from "../actions";
 
 export interface ThreadsEntities {
   [id: string]: Thread;
@@ -19,5 +20,23 @@ const initialState: ThreadsState = {
 
 export const ThreadsReducer =
   function (state: ThreadsState = initialState, action: Action): ThreadsState {
-    return state;
+    switch (action.type) {
+
+      case ThreadActions.ADD_THREAD: {
+        const thread = (<ThreadActions.AddThreadAction>action).thread;
+
+        if (state.ids.indexOf(thread.id) != -1) {
+          return state;
+        }
+
+        return {
+          ids: [],
+          currentThread: state.currentThread,
+          entities: Object.assign({}, state.entities, {
+            [thread.id]: thread
+          })
+        };
+
+      }
+    }
   };
