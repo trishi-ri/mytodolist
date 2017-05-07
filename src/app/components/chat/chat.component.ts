@@ -13,6 +13,7 @@ import ChatExampleData from "./ChatExampleData";
 export class ChatComponent implements OnInit {
 
   today: number = Date.now();
+  defaultAvatar: string = ((<any>window).__karma__) ? '' : require('../../../assets/images/avatars/female-avatar-1.png');
 
   constructor(@Inject(APP_STORE) private store: Store<AppState>) {
     ChatExampleData(store);
